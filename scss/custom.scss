@@ -1,0 +1,276 @@
+/*
+CUSTOM.SCSS
+*/
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: '';
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> .content {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+// Helpers
+.aspect-ratio-16_9 {
+	@include aspect-ratio(16, 9);
+}
+
+.aspect-ratio-4_3 {
+	@include aspect-ratio(4, 3);
+}
+
+.aspect-ratio-2_1 {
+	@include aspect-ratio(2, 1);
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	background-color: $gray-200;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+// Buttons
+.btn {
+	padding: 0.5rem 1.75rem;
+}
+
+// Navbar
+.navbar {
+	&.navbar-top {
+		padding: 0.25rem 1rem;
+	}
+	&.navbar-main {
+		position: absolute;
+		width: 100%;
+		border-top: 1px solid $gray-500;
+		border-bottom: 1px solid $gray-500;
+		z-index: 1;
+		@include media-breakpoint-up(sm) {
+			padding: 0 1rem;
+		}
+		.nav-item {
+			&:first-child .nav-link {
+				border-left: 1px solid $gray-500;
+			}
+		}
+		.nav-link {
+			padding: 0.9rem 1.55rem 1rem;
+			border-right: 1px solid $gray-500;
+			&:hover {
+				background-color: $gray-400;
+			}
+		}
+		.text-underline {
+			padding: 0 4px 4px;
+			border-bottom: 1px solid $secondary;
+		}
+		.dropdown-mega {
+			&.show {
+				.nav-link {
+					background-color: $white;
+				}
+				.text-underline {
+					border-color: transparent;
+				}
+			}
+		}
+		.dropdown-toggle, .form-control {
+			border-color: $white;
+		}
+		.dropdown-toggle {
+			background-color: $white;
+			color: $gray-600;
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0.25rem;
+				right: 0;
+				bottom: 0.25rem;
+				width: 1px;
+				background-color: $gray-200;
+			}
+		}
+	}
+}
+
+// Cards
+.card-container {
+	border-top: 0.25rem solid $dark;
+	&-primary {
+		border-color: $primary;
+	}
+	&-secondary {
+		border-color: $secondary;
+	}
+	&-tertiary {
+		border-color: $tertiary;
+	}
+	&-quaternary {
+		border-color: $quaternary;
+	}
+	&-quinary {
+		border-color: $quinary;
+	}
+	.card {
+		border-radius: 0 0 0.25rem 0.25rem;
+		.card-body {
+			padding: 1.5rem 2rem;
+		}
+		.card-title {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Dropdown Mega Menu
+.dropdown-mega {
+	position: static;
+}
+
+.dropdown-mega-menu {
+	position: absolute;
+	right: auto;
+	left: auto;
+	margin-top: 0;
+	padding: 0;
+	width: auto;
+	border: 1px solid $gray-500;
+	border-top: 0;
+	border-radius: 0;
+}
+
+// Carousel
+.carousel-main {
+	.carousel-inner {
+		height: 100vh;
+		max-height: 544px;
+	}
+	.carousel-item {
+		height: 100%;
+		background-position: center center;
+		background-size: cover;
+	}
+
+	// Carousel Card
+	.card-container {
+		max-width: 50%;
+		.btn {
+			transform: translateY(-0.75rem);
+		}
+	}
+	.carousel-control-prev, .carousel-control-next {
+		margin: auto;
+		width: 3rem;
+		height: 4rem;
+		background-color: rgba($black, 0.75);
+	}
+	.carousel-control-prev-icon, .carousel-control-next-icon {
+		background-image: none;
+		width: 0;
+		height: 0;
+		border-top: 1.25rem solid transparent;
+		border-bottom: 1.25rem solid transparent;
+	}
+	.carousel-control-prev-icon {
+		border-right: 1.25rem solid $primary;
+	}
+	.carousel-control-next-icon {
+		border-left: 1.25rem solid $primary;
+	}
+}
+
+// Callouts
+.callouts {
+	.callout {
+		border-radius:0.25rem;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		&.with-border {
+			&:after {
+				content: '';
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				bottom: 1rem;
+				left: 1rem;
+				margin: auto;
+				border: 0.125rem solid $white;
+				border-radius: 0.25rem;
+			}
+		}
+	}
+	.btn {
+		border: 0.25rem solid $primary;
+		border-radius: 0.25rem;
+		background-color: rgba($black, 0.75);
+		color: $white;
+		transition: all 0.5s ease;
+		&:hover {
+			background-color: $primary;
+		}
+	}
+}
+
+// Footer
+footer {
+	background-color: $gray-600;
+	color: $white;
+	a {
+		color: $white;
+		&:hover {
+			text-decoration: none;
+			color: $gray-400;
+		}
+	}
+	.social-icons {
+		&:hover li a {
+			opacity: 0.5;
+		}
+		li {
+			&:not(:last-child) {
+				margin-right: 0.125rem;
+			}
+			a {
+				width: 36px;
+				height: 36px;
+				display: inline-block;
+				background: url(../assets/img/sprite-social-icons.png) no-repeat 0 0;
+				transition: all 0.5s ease;
+				&:hover {
+					opacity: 1;
+				}
+				&.facebook {
+					background-position: -3px 0;
+				}
+				&.twitter {
+					background-position: -44px 0;
+				}
+				&.instagram {
+					background-position: -86px 0;
+				}
+				&.pinterest {
+					background-position: -128px 0;
+				}
+			}
+		}
+	}
+	hr {
+		border-color: rgba($gray-500, 0.25);
+	}
+}

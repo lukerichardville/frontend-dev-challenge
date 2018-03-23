@@ -1,34 +1,49 @@
-{
+{  
   "callouts": [
     {
       "title":"Callout One",
+      "colSize":6,
+      "aspectRatio":"2_1",
       "buttonLabel":"Click Me",
-      "imagePath":"/assets/img/image-1.jpg",
-      "color":"yellow"
+      "imagePath":"assets/img/image-1.jpg",
+      "color":"tertiary",
+      "classes":""
     },
     {
       "title":"Callout Two",
+      "colSize":6,
+      "aspectRatio":"2_1",
       "buttonLabel":"Click This",
-      "imagePath":"/assets/img/image-2.jpg",
-      "color":"red"
+      "imagePath":"assets/img/image-2.jpg",
+      "color":"quaternary",
+      "classes":""
     },
     {
       "title":"Callout Three",
+      "colSize":4,
+      "aspectRatio":"4_3",
       "buttonLabel":"",
-      "imagePath":"/assets/img/image-3.jpg",
-      "color":"green"
+      "imagePath":"assets/img/image-3.jpg",
+      "color":"quinary",
+      "classes":"with-border"
     },
     {
       "title":"Callout Four",
+      "colSize":4,
+      "aspectRatio":"4_3",
       "buttonLabel":"",
-      "imagePath":"/assets/img/image-4.jpg",
-      "color":"green"
+      "imagePath":"assets/img/image-4.jpg",
+      "color":"quinary",
+      "classes":"with-border"
     },
     {
       "title":"Callout Five",
+      "colSize":4,
+      "aspectRatio":"4_3",
       "buttonLabel":"",
-      "imagePath":"/assets/img/image-5.jpg",
-      "color":"green"
+      "imagePath":"assets/img/image-5.jpg",
+      "color":"quinary",
+      "classes":"with-border"
     }
   ]
 }
